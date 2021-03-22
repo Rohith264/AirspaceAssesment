@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 class Transform:
-
+    # Parsing the json_obj column to obtain the driving distance
     def transdistData(self,ds):
         data = []
         for (i, v) in ds.iterrows():
@@ -26,6 +26,7 @@ class Transform:
         ds['totalDistance'] = pd.to_numeric(ds['totalDistance'], errors='coerce')
         return ds
 
+    # Parsing the json_obj column to obtain the drive time
     def transTimeData(self, ds):
         data = []
         for (i, v) in ds.iterrows():
@@ -45,6 +46,7 @@ class Transform:
         ds['drivingtime'] = pd.to_numeric(ds['drivingtime'])
         return ds
 
+    # Parsing the json_obj column to obtain the flight arrival time
     def transArrivalData(self, d):
         arrivaltime = []
 
@@ -59,6 +61,7 @@ class Transform:
         d['arrivaltime'] = arrivaltime
         return d
 
+    # Converting all date fields from Object to DateTime type
     def transformdate(self,df6):
         df6.pick_up_time = pd.to_datetime(df6.pick_up_time)
         df6.created_at = pd.to_datetime(df6.created_at)
