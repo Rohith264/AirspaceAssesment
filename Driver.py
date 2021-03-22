@@ -21,6 +21,7 @@ class Driver:
         merge=Merge()
         finalData = merge.mergeAllTables(drivingSearch,delivery,orders,startAddresses,endAddresses)
         finalData= transform.transformdate(finalData)
-        sqlload=SQL_Load()
-        sqlload.loadDataToStaging(finalData)
+        print(finalData)
+        ##sqlload=SQL_Load()
+        ##sqlload.loadDataToStaging(finalData)
 
